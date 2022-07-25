@@ -2,14 +2,25 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import QuizContent from "../components/QuizContent";
 import styles from "../styles/Home.module.css";
+import { useRouter } from "next/router";
 
 const Quiz = ({ data: { results } }) => {
   const [quizs, setQuizs] = useState([]);
   const [quizCount, setQuizCount] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     setQuizs(results);
   }, [results]);
+
+  useEffect(() => {
+    if (quizCount === 0) return;
+
+    if (quizCount >= quizs.length) {
+      router.push("/result");
+      setQuizCount(0);
+    }
+  }, [quizs, quizCount, router]);
 
   const currentQuiz = quizs[quizCount];
 
