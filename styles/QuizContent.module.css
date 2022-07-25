@@ -1,0 +1,27 @@
+.answer {
+  width: calc(50% - 8px);
+  padding: 2em 0;
+  border: 3px solid #0070f3;
+  border-radius: 12px;
+  margin: 4px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: transparent;
+}
+
+.answer:disabled {
+  color: gray;
+  border-color: gray;
+}
+
+.answer.correct,
+.answer:disabled.correct {
+  border-color: green;
+  color: green;
+}
+
+.answer.wrong,
+.answer:disabled.wrong {
+  border-color: red;
+  color: red;
+}
