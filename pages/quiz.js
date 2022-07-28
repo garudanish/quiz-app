@@ -18,7 +18,6 @@ const Quiz = ({ data: { results } }) => {
 
     if (quizCount >= quizs.length) {
       router.push("/result");
-      setQuizCount(0);
     }
   }, [quizs, quizCount, router]);
 

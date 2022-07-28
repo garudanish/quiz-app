@@ -17,11 +17,13 @@
 .answer.correct,
 .answer:disabled.correct {
   border-color: green;
-  color: green;
+  background-color: green;
+  color: white;
 }
 
 .answer.wrong,
 .answer:disabled.wrong {
   border-color: red;
-  color: red;
+  background-color: red;
+  color: white;
 }
