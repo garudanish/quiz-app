@@ -4,6 +4,8 @@ import QuizContent from "../components/QuizContent";
 import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 
+const startTime = new Date();
+
 const Quiz = ({ data: { results } }) => {
   const [quizs, setQuizs] = useState([]);
   const [quizCount, setQuizCount] = useState(0);
@@ -17,6 +19,9 @@ const Quiz = ({ data: { results } }) => {
     if (quizCount === 0) return;
 
     if (quizCount >= quizs.length) {
+      const endTime = new Date();
+      const playingTime = Math.round((endTime - startTime) / 1000);
+      localStorage.setItem("playingTime", playingTime);
       router.push("/result");
     }
   }, [quizs, quizCount, router]);
